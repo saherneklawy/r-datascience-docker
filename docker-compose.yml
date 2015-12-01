@@ -1,0 +1,6 @@
+r-console:
+  build: .
+  volumes:
+    - .:/workdir
+    working_dir: /workdir
+    command: R
