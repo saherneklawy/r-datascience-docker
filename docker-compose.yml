@@ -4,3 +4,4 @@ r-console:
     - .:/workdir
     working_dir: /workdir
     command: R
+
