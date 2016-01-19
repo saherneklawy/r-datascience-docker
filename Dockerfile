@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN R -e 'install.packages("rmarkdown")'
 RUN R -e 'install.packages("shiny")'
+RUN R -e 'install.packages("tidyr")'
 RUN R -e 'install.packages("dplyr")'
 RUN R -e 'install.packages("ggplot2")'
 RUN R -e 'install.packages("ggvis")'
@@ -43,15 +44,18 @@ RUN R -e 'install.packages("scales")'
 RUN R -e 'install.packages("xtable")'
 RUN R -e 'install.packages("yaml")'
 RUN R -e 'install.packages("caret")'
+RUN R -e 'install.packages("e1071")'
 RUN R -e 'install.packages("xgboost")'
 RUN R -e 'install.packages("pROC")'
-RUN R -e 'install.packages("readr")'
 
 RUN apt-get install -y \
   pandoc
 
 RUN apt-get install -y \
   curl libcurl4-openssl-dev
+
+# readr needs to be installed after curl and libcurl
+RUN R -e 'install.packages("readr")'
 
 #RUN apt-get install -y \
 #  mongodb-clients \
