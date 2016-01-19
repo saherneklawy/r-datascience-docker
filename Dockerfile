@@ -57,7 +57,6 @@ RUN apt-get install -y \
 # readr needs to be installed after curl and libcurl
 RUN R -e 'install.packages("readr")'
 
-
 #RUN apt-get install -y \
 #  mongodb-clients \
 #  pandoc
