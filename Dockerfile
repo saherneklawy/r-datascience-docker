@@ -3,11 +3,10 @@ FROM r-base:latest
 RUN apt-get update && apt-get install -y \
   libmysqlclient-dev
 
-RUN R -e 'install.packages("readr")'
-RUN R -e 'install.packages("tidyr")'
-RUN R -e 'install.packages("dplyr")'
 RUN R -e 'install.packages("rmarkdown")'
 RUN R -e 'install.packages("shiny")'
+RUN R -e 'install.packages("tidyr")'
+RUN R -e 'install.packages("dplyr")'
 RUN R -e 'install.packages("ggplot2")'
 RUN R -e 'install.packages("ggvis")'
 RUN R -e 'install.packages("RMySQL")'
@@ -54,6 +53,10 @@ RUN apt-get install -y \
 
 RUN apt-get install -y \
   curl libcurl4-openssl-dev
+
+# readr needs to be installed after curl and libcurl
+RUN R -e 'install.packages("readr")'
+
 
 #RUN apt-get install -y \
 #  mongodb-clients \
